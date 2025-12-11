@@ -1,0 +1,108 @@
+
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }body {
+        background: #f7f7f7;
+    }
+
+    nav {
+        width: 100%;
+        background: #333;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .logo {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 20px;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #ff9800;
+    }
+
+    /* Hamburger */
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: white;
+    }
+
+    /* Mobile Menu */
+    @media (max-width: 768px) {
+        .nav-links {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: #333;
+            flex-direction: column;
+            display: none;
+            padding: 15px 0;
+        }
+
+        .nav-links.show {
+            display: flex;
+        }
+
+        .hamburger {
+            display: flex;
+        }
+    }
+</style>
+
+</head>
+<body>
+    <nav>
+        <div class="logo">MyWebsite</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav><script>
+    function toggleMenu() {
+        var nav = document.getElementById("navLinks");
+        nav.classList.toggle("show");
+    }
+</script>
+
+</body>
+</html>
